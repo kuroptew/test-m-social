@@ -1,0 +1,59 @@
+@import '../../style/variables';
+
+.wrapper__input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_right{
+    width: 76.5%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.label {
+  position: relative;
+  font-size:2.1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: $black;
+  text-shadow: 0px 4px 4px rgba($black, 0.25);
+
+  &[aria-required="true"]::after {
+    content: '\002A';
+    display: inline-block;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    color: red;
+  }
+}
+
+.input {
+  width: 33.5rem;
+  margin-right: 1.8rem;
+  padding: 1rem .6rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.18;
+  color: $black;
+
+
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &:-moz-placeholder,
+  &:-ms-input-placeholder {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.18;
+    color: $middle-grey;
+  }
+}
+
+.description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.66;
+  color: $grey;
+}

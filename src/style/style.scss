@@ -1,0 +1,66 @@
+@import 'normalize';
+@import 'reset';
+@import 'variables';
+
+html {
+  font-size: 10px;
+}
+
+body{
+  font-family: "Arial", sans-serif;
+}
+
+.container{
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 10rem 9rem 8rem 12.5rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height:1.13;
+  color: $dark-grey;
+  margin-bottom: 4.5rem;
+
+  span {
+    color:$black;
+  }
+}
+
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-bottom: 4rem;
+
+  &:not(:first-of-type){
+    padding-top: 4rem;
+    border-top: 1px solid $light-grey;
+  }
+}
+
+
+
+.form__row_submit{
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.btn__submit {
+  margin-right: 1.2rem;
+  padding: 1.75rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.11;
+  color: $white;
+  text-align: center;
+  text-shadow: 0px -1px 0px rgba($black, 0.25);
+  background-color: $green;
+  transition: background-color .4s ease-in-out;
+
+  &:hover {
+    background-color: rgba($green, 0.7);
+  }
+}
