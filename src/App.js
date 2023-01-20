@@ -3,14 +3,21 @@ import {useState} from "react";
 
 import './style/style.scss'
 import Checkbox from "./components/Checkbox/Checkbox";
+import Select from "./components/Select/Select";
+
+import cities from './assets/cities.json'
+
+import getSortedAndFilteredCities from "./utils/getSortedAndFiltred";
 
 function App() {
-  const [user, setUser] = useState('Человек')
+  const [user, setUser] = useState({})
   const date = new Date()
+
+  const optionsCities = getSortedAndFilteredCities(cities)
 
   return (<div className="App">
     <div className="container">
-      <h1 className="title">Здравствуйте, <span>{user}</span></h1>
+      <h1 className="title">Здравствуйте, <span>{user.name || 'Человек'}</span></h1>
       <form className="form" action="">
         <div className="form__row">
           <Input
@@ -28,6 +35,15 @@ function App() {
             description="Должен содержать не менее 2 символов и только кириллица."
             placeholder="Введите фамилию"
             required={true}
+          />
+          <Select
+            options={optionsCities}
+            defaultValue={'Выберите город'}
+            value={cities[0]}
+            onChange={() => {
+            }}
+            id="select-cities"
+            labelName="Ваш город"
           />
         </div>
         <div className="form__row">

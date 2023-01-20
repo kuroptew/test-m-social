@@ -1,6 +1,6 @@
 @import '../../style/variables';
 
-.wrapper__input {
+.input__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,12 +61,13 @@
 .input {
   width: 33.5rem;
   margin-right: 1.8rem;
-  padding: 1rem .6rem;
+  padding: 1.2rem .6rem;
   border: 1px solid $grey;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.18;
   color: $black;
+  outline-color: $black;
 
   &::-webkit-input-placeholder,
   &::-moz-placeholder,
@@ -76,7 +77,6 @@
     font-weight: 400;
     line-height: 1.18;
     color: $middle-grey;
-
 
     @media screen and (width < 1170px){
       font-size: 1.2rem;

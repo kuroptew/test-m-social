@@ -1,7 +1,7 @@
-import styles from './Input.module.scss'
+import styles from "./Input.module.scss"
 
 const Input = ({labelName, id, type, description, required, placeholder}) => {
-  return (<div className={styles['wrapper__input']}>
+  return (<div className={styles['input__wrapper']}>
     <label
       htmlFor={id}
       className={styles.label}
@@ -9,7 +9,7 @@ const Input = ({labelName, id, type, description, required, placeholder}) => {
     >
       {labelName}
     </label>
-    <div className={styles['wrapper__input_right']}>
+    <div className={styles['input__wrapper_right']}>
       <input
         id={id}
         type={type}
@@ -17,7 +17,7 @@ const Input = ({labelName, id, type, description, required, placeholder}) => {
         placeholder={placeholder}
         className={styles.input}
       />
-      <p className={styles.description}>{description}</p>
+      {description && <p className={styles.description}>{description}</p>}
     </div>
   </div>);
 };

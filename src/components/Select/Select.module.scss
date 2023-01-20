@@ -1,0 +1,81 @@
+@import '../../style/variables';
+
+.wrapper__select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (width < 1170px) {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  @media screen and (width < 760px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_right {
+    width: 77%;
+    display: flex;
+    align-items: center;
+
+    @media screen and (width < 1170px) {
+      width: 100%;
+    }
+
+    @media screen and (width < 760px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.label {
+  position: relative;
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: $black;
+
+  @media screen and (width < 1170px) {
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+  }
+
+  @media screen and (width < 760px) {
+    margin-bottom: .8rem;
+    font-size: 1.4rem;
+  }
+}
+
+.select {
+  width: 33.5rem;
+  padding: 1.2rem .6rem;
+  border: 1px solid $grey;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.18;
+  color: $black;
+  appearance: none;
+  background-image: url("../../../src/assets/img/arrow-select-close.svg");
+  background-repeat: no-repeat, repeat;
+  background-position: right 1.2rem top 50%, 0 0;
+  background-size: 1.4rem , 100%;
+  outline-color: $black;
+
+  @media screen and (width < 1170px){
+    width: 25rem;
+    padding: .8rem .4rem;
+    font-size: 1.2rem;
+    background-position: right .8rem top 50%, 0 0;
+  }
+
+  @media screen and (width < 760px){
+    margin-right: 0;
+    width: 100%;
+    padding: .5rem .4rem;
+    font-size: 1rem;
+    background-position: right .5rem top 50%, 0 0;
+    background-size: 1rem , 100%;
+  }
+}

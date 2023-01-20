@@ -13,10 +13,10 @@ body {
 .container {
   max-width: 1170px;
   margin: 0 auto;
-  padding:  12.5rem 10rem 9rem 8rem;
+  padding: 12.5rem 10rem 9rem 8rem;
 
   @media screen and (width < 1170px) {
-    padding: 7rem 4rem 4.5rem 4rem ;
+    padding: 7rem 4rem 4.5rem 4rem;
   }
 
   @media screen and (width < 760px) {
@@ -70,7 +70,7 @@ body {
     }
 
     @media screen and (width < 760px) {
-      padding-top: 2rem;
+      padding-top: 1.2rem;
     }
   }
 }
@@ -83,7 +83,6 @@ body {
   @media screen and (width < 1170px) {
     margin-top: .8rem;
   }
-
 }
 
 .btn__submit {

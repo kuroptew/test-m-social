@@ -1,6 +1,6 @@
 @import '../../style/variables';
 
-.wrapper__checkbox {
+.checkbox__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,8 +54,6 @@
   height: 1.2rem;
   position: relative;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   outline: none;
   z-index: 9999;
 
