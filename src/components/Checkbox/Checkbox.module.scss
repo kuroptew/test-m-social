@@ -1,0 +1,101 @@
+@import '../../style/variables';
+
+.wrapper__checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (width < 1170px) {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  @media screen and (width < 760px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_right {
+    width: 77%;
+    display: flex;
+    align-items: center;
+
+    @media screen and (width < 1170px) {
+      width: 100%;
+    }
+
+    @media screen and (width < 760px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.checkbox__label {
+  position: relative;
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: $black;
+
+  @media screen and (width < 1170px) {
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+  }
+
+  @media screen and (width < 760px) {
+    margin-bottom: .8rem;
+    font-size: 1.4rem;
+  }
+}
+
+.checkbox__input {
+  margin-right: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  z-index: 9999;
+
+  @media screen and (width < 1170px) {
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+  }
+
+  @media screen and (width < 760px) {
+    margin-bottom: .8rem;
+    font-size: 1.4rem;
+  }
+
+  &:checked + .box {
+    background-image: url("../../assets/img/arrow-checkbox.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &:focus+ .box {
+    box-shadow: 0 0 0 1px $middle-grey,
+    0 0 0 2px $green;
+  }
+}
+
+.box {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  box-shadow: 0 0 0 1px $middle-grey;
+}
+
+.description {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.19;
+  color: $black;
+
+  @media screen and (width < 760px){
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

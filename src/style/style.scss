@@ -6,25 +6,41 @@ html {
   font-size: 10px;
 }
 
-body{
+body {
   font-family: "Arial", sans-serif;
 }
 
-.container{
+.container {
   max-width: 1170px;
   margin: 0 auto;
-  padding: 10rem 9rem 8rem 12.5rem;
+  padding:  12.5rem 10rem 9rem 8rem;
+
+  @media screen and (width < 1170px) {
+    padding: 7rem 4rem 4.5rem 4rem ;
+  }
+
+  @media screen and (width < 760px) {
+    padding: 2rem;
+  }
 }
 
 .title {
   font-size: 3rem;
   font-weight: 700;
-  line-height:1.13;
+  line-height: 1.13;
   color: $dark-grey;
   margin-bottom: 4.5rem;
 
+  @media screen and (width < 1170px) {
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (width < 760px) {
+    font-size: 2rem;
+  }
+
   span {
-    color:$black;
+    color: $black;
   }
 }
 
@@ -35,17 +51,39 @@ body{
   gap: 4rem;
   padding-bottom: 4rem;
 
-  &:not(:first-of-type){
+  @media screen and (width < 1170px) {
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @media screen and (width < 760px) {
+    gap: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  &:not(:first-of-type) {
     padding-top: 4rem;
     border-top: 1px solid $light-grey;
+
+    @media screen and (width < 1170px) {
+      padding-top: 2rem;
+    }
+
+    @media screen and (width < 760px) {
+      padding-top: 2rem;
+    }
   }
 }
 
 
-
-.form__row_submit{
+.form__row_submit {
   margin-top: 1.2rem;
   text-align: center;
+
+  @media screen and (width < 1170px) {
+    margin-top: .8rem;
+  }
+
 }
 
 .btn__submit {
@@ -59,6 +97,12 @@ body{
   text-shadow: 0px -1px 0px rgba($black, 0.25);
   background-color: $green;
   transition: background-color .4s ease-in-out;
+
+  @media screen and (width < 760px) {
+    padding: 1rem .8rem;
+    font-size: 1.5rem;
+  }
+
 
   &:hover {
     background-color: rgba($green, 0.7);

@@ -1,0 +1,115 @@
+@import '../../style/variables';
+
+.wrapper__input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (width < 1170px) {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  @media screen and (width < 760px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_right {
+    width: 77%;
+    display: flex;
+    align-items: center;
+
+    @media screen and (width < 1170px) {
+      width: 100%;
+    }
+
+    @media screen and (width < 760px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.label {
+  position: relative;
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: $black;
+
+  @media screen and (width < 1170px) {
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+  }
+
+  @media screen and (width < 760px) {
+    margin-bottom: .8rem;
+    font-size: 1.4rem;
+  }
+
+
+  &[aria-required="true"]::after {
+    content: '\002A';
+    display: inline-block;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    color: red;
+  }
+}
+
+.input {
+  width: 33.5rem;
+  margin-right: 1.8rem;
+  padding: 1rem .6rem;
+  border: 1px solid $grey;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.18;
+  color: $black;
+
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &:-moz-placeholder,
+  &:-ms-input-placeholder {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.18;
+    color: $middle-grey;
+
+
+    @media screen and (width < 1170px){
+      font-size: 1.2rem;
+    }
+
+    @media screen and (width < 760px){
+      font-size: .8rem;
+    }
+  }
+
+  @media screen and (width < 1170px){
+    width: 25rem;
+    padding: .8rem .4rem;
+    font-size: 1.2rem;
+  }
+
+  @media screen and (width < 760px){
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: .5rem .4rem;
+    font-size: 1rem;
+  }
+}
+
+.description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.66;
+  color: $grey;
+
+  @media screen and (width < 760px){
+    font-size: 1rem;
+    text-align: center;
+  }
+}
