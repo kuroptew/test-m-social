@@ -19,6 +19,7 @@
     width: 77%;
     display: flex;
     align-items: center;
+    position: relative;
 
     @media screen and (width < 1170px) {
       width: 100%;
@@ -58,16 +59,39 @@
   }
 }
 
+.input__error {
+  position: absolute;
+  left: 0;
+  bottom: -2.4rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.66;
+  color:$redError;
+
+  @media screen and (width < 1170px){
+    font-size: 1rem;
+  }
+
+  @media screen and (width < 760px){
+    font-size: 1.2rem;
+    bottom: 3.7rem;
+  }
+}
+
 .input {
   width: 33.5rem;
   margin-right: 1.8rem;
-  padding: 1.2rem .6rem;
+  padding: .6rem 1.2rem;
   border: 1px solid $grey;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.18;
   color: $black;
   outline-color: $black;
+
+  &[aria-invalid='true']{
+    border: 1px solid $redError;
+  }
 
   &::-webkit-input-placeholder,
   &::-moz-placeholder,
@@ -82,23 +106,19 @@
       font-size: 1.2rem;
     }
 
-    @media screen and (width < 760px){
-      font-size: .8rem;
-    }
   }
 
   @media screen and (width < 1170px){
     width: 25rem;
-    padding: .8rem .4rem;
+    padding: .4rem .8rem;
     font-size: 1.2rem;
   }
 
   @media screen and (width < 760px){
     margin-right: 0;
     width: 100%;
-    margin-bottom: 1.2rem;
-    padding: .5rem .4rem;
-    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: .4rem .5rem;
   }
 }
 
@@ -109,7 +129,6 @@
   color: $grey;
 
   @media screen and (width < 760px){
-    font-size: 1rem;
     text-align: center;
   }
 }

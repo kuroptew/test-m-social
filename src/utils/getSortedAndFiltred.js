@@ -19,6 +19,7 @@ function getSortedAndFilteredCities(cities) {
   sortedAndFilteredCities = [cityMaxPopulation, ...sortedAndFilteredCities.splice(0, indexMaxPopulation), ...sortedAndFilteredCities.splice(indexMaxPopulation)]
     .map(objCity => objCity.city)
 
+
   return sortedAndFilteredCities
 }
 

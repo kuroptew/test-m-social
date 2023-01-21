@@ -1,6 +1,6 @@
 import styles from "./Select.module.scss"
 
-const Select = ({options, defaultValue, value, onChange, labelName, id }) => {
+const Select = ({options, defaultValue, value, onChange, labelName, id}) => {
   return (
     <div className={styles['wrapper__select']}>
       <label
@@ -13,12 +13,11 @@ const Select = ({options, defaultValue, value, onChange, labelName, id }) => {
         <select
           id={id}
           value={value}
-          onChange={event => onChange(event.target.value)}
+          onChange={e => onChange(e)}
           className={styles.select}
         >
-          <option value="" disabled>{defaultValue}</option>
           {options.map((option, index) =>
-            <option key={index} value={option.value}>
+            <option key={index} value={option}>
               {option}
             </option>
           )}

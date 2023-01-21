@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "../Checkbox/Checkbox.module.scss";
 
 
-const Checkbox = ({labelName, id, required, description}) => {
+const Checkbox = ({labelName, id, required, description,checked, onChange}) => {
   return (
     <div className={styles["checkbox__wrapper"]}>
       <label
@@ -16,6 +16,9 @@ const Checkbox = ({labelName, id, required, description}) => {
           type="checkbox"
           required={required}
           id={id}
+          checked={checked}
+          onChange={e=>{
+            onChange(e)}}
         />
           <span className={styles["box"]}></span>
           <p className={styles.description}>{description}</p>
