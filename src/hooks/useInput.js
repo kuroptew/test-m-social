@@ -1,5 +1,7 @@
 import {useState, useEffect} from "react"
 
+import getDeclination from "../utils/getDeclination";
+
 const useValidation = (value, validations, messageEmpty) => {
   const [isEmpty, setEmpty] = useState(true)
   const [minLengthError, setMinLengthError] = useState(false)
@@ -8,10 +10,7 @@ const useValidation = (value, validations, messageEmpty) => {
   const [equalError, setEqualError] = useState(false)
   const [emailError, setEmailError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-
-  const funcNum = (n) => {
-    return n < 5 ? "символа" : "символов"
-  }
+  const [inputValid, setInputValid] = useState(false)
 
   useEffect(() => {
     for (const validation in validations) {
@@ -19,7 +18,7 @@ const useValidation = (value, validations, messageEmpty) => {
         case "minLength":
           if (value.length < validations[validation]) {
             setMinLengthError(true)
-            setErrorMessage(`Введите минимум ${validations[validation]} ${funcNum(validations[validation])}`)
+            setErrorMessage(`Введите минимум ${validations[validation]} ${getDeclination(validations[validation])}`)
           } else {
             setMinLengthError(false)
           }
@@ -43,7 +42,6 @@ const useValidation = (value, validations, messageEmpty) => {
           }
           break
         case "isEqual":
-          console.log('что пришло в эквал', validations[validation])
           if (value === validations[validation]) {
             setEqualError(false)
           } else {
@@ -72,6 +70,15 @@ const useValidation = (value, validations, messageEmpty) => {
     }
   }, [value])
 
+  useEffect(()=>{
+    if(isEmpty || minLengthError || cyrillicError || latinError || emailError || equalError) {
+      setInputValid(false)
+    } else {
+      setInputValid(true)
+    }
+
+  }, [isEmpty, minLengthError, cyrillicError, latinError, emailError, equalError])
+
   return {
     isEmpty,
     minLengthError,
@@ -80,10 +87,11 @@ const useValidation = (value, validations, messageEmpty) => {
     latinError,
     equalError,
     emailError,
+    inputValid
   }
 }
 
-const useInput = (initialValue, validations, messageEmpty, mask) => {
+const useInput = (initialValue, validations, messageEmpty) => {
   const [value, setValue] = useState(initialValue)
   const [isDirty, setDirty] = useState(false)
   const valid = useValidation(value, validations,  messageEmpty)

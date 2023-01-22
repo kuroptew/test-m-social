@@ -36,11 +36,11 @@ const FormUser = ({user, date, setUser, setDate}) => {
       isEmpty: true
     },
     "Укажите фамилию")
-
+  //
   const userCityInput = useInput(
     user.city || optionsCities[0],
     {})
-
+  //
   const userPasswordInput = useInput(
     user.password || '',
     {
