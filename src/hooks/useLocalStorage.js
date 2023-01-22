@@ -1,5 +1,6 @@
 import {useState} from "react"
 
+//Обьект window для серверного рендеринга
 function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
     if (typeof window === "undefined") {

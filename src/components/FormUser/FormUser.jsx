@@ -84,8 +84,8 @@ const FormUser = ({user, date, setUser, setDate}) => {
     e.preventDefault()
 
     const newUserData = {
-      name: userNameInput.value,
-      surname: userSurnameInput.value,
+      name: userNameInput.value.trim(),
+      surname: userSurnameInput.value.trim(),
       city: userCityInput.value,
       password: userPasswordInput.value,
       phone: userPhoneInput.value,
