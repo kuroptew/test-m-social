@@ -205,7 +205,7 @@ const FormUser = ({user, date, setUser, setDate}) => {
         <div>
           <button
             type="submit"
-            className={styles["btn__submit"]}
+            className={styles["submit__btn"]}
             onClick={onSubmit}
             disabled={isInvalidForm()}
           >
