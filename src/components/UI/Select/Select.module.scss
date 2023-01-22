@@ -1,6 +1,6 @@
-@import '../../style/variables';
+@import "../../../style/variables";
 
-.wrapper__select {
+.select__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,23 +14,23 @@
     flex-direction: column;
     align-items: center;
   }
+}
 
-  &_right {
-    width: 77%;
-    display: flex;
-    align-items: center;
+.select__wrapper_right {
+  width: 77%;
+  display: flex;
+  align-items: center;
 
-    @media screen and (width < 1170px) {
-      width: 100%;
-    }
+  @media screen and (width < 1170px) {
+    width: 100%;
+  }
 
-    @media screen and (width < 760px) {
-      flex-direction: column;
-    }
+  @media screen and (width < 760px) {
+    flex-direction: column;
   }
 }
 
-.label {
+.select__label {
   position: relative;
   font-size: 2.1rem;
   font-weight: 400;
@@ -44,20 +44,20 @@
 
   @media screen and (width < 760px) {
     margin-bottom: .8rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 
 .select {
   width: 33.5rem;
-  padding: 1.2rem .6rem;
+  padding: .6rem 1.2rem;
   border: 1px solid $grey;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.18;
   color: $black;
   appearance: none;
-  background-image: url("../../../src/assets/img/arrow-select-close.svg");
+  background-image: url("../../../assets/img/arrow-select.svg");
   background-repeat: no-repeat, repeat;
   background-position: right 1.2rem top 50%, 0 0;
   background-size: 1.4rem , 100%;
@@ -74,7 +74,6 @@
     margin-right: 0;
     width: 100%;
     padding: .5rem .4rem;
-    font-size: 1rem;
     background-position: right .5rem top 50%, 0 0;
     background-size: 1rem , 100%;
   }

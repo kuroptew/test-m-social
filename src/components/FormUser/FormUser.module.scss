@@ -1,0 +1,90 @@
+@import "../../style/variables";
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-bottom: 4rem;
+
+  @media screen and (width < 1170px) {
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  &:not(:first-of-type) {
+    padding-top: 4rem;
+    border-top: 1px solid $light-grey;
+
+    @media screen and (width < 1170px) {
+      padding-top: 2.5rem;
+    }
+
+    @media screen and (width < 760px) {
+      padding-top: 1.2rem;
+    }
+  }
+}
+
+
+.form__row_submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+
+  @media screen and (width < 1170px) {
+    margin-top: .8rem;
+    justify-content: flex-start;
+  }
+
+  > div {
+    width: 77%;
+
+    @media screen and (width < 760px) {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+.btn__submit {
+  margin-right: 1.2rem;
+  padding: 1rem 1.75rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.11;
+  color: $white;
+  text-align: center;
+  text-shadow: 0px -1px 0px rgba($black, 0.25);
+  background-color: $green;
+  transition: all .4s ease-in-out;
+
+  &:hover {
+    color: $black;
+    background-color: rgba($green, 0.5);
+  }
+
+  &:disabled {
+    color: $white;
+    background-color: $grey;
+  }
+
+  @media screen and (width < 760px) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    padding: .8rem;
+    font-size: 1.5rem;
+  }
+}
+
+.submit__text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.66;
+  color:$grey;
+
+  @media screen and (width < 760px) {
+    text-align: center;
+  }
+}

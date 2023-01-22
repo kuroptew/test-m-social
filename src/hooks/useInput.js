@@ -1,6 +1,4 @@
-import {useState, useEffect} from "react";
-import phoneMask from "../utils/phoneMask";
-
+import {useState, useEffect} from "react"
 
 const useValidation = (value, validations, messageEmpty) => {
   const [isEmpty, setEmpty] = useState(true)
@@ -18,57 +16,58 @@ const useValidation = (value, validations, messageEmpty) => {
   useEffect(() => {
     for (const validation in validations) {
       switch (validation) {
-        case 'minLength':
+        case "minLength":
           if (value.length < validations[validation]) {
             setMinLengthError(true)
             setErrorMessage(`Введите минимум ${validations[validation]} ${funcNum(validations[validation])}`)
           } else {
             setMinLengthError(false)
           }
-          break;
-        case 'isCyrillic':
+          break
+        case "isCyrillic":
           const regExpCyrillic = /^[А-ЯЁа-яё\s]+$/
           if (regExpCyrillic.test(String(value))) {
             setCyrillicError(false)
           } else {
             setCyrillicError(true)
-            setErrorMessage('Введите только кириллицу')
+            setErrorMessage("Введите только кириллицу")
           }
-          break;
-        case 'isLatin':
+          break
+        case "isLatin":
           const regExpLatin = /^[A-Za-z\s]+$/
           if (regExpLatin.test(String(value))) {
             setLatinError(false)
           } else {
             setLatinError(true)
-            setErrorMessage('Введите только латинские буквы')
+            setErrorMessage("Введите только латинские буквы")
           }
-          break;
-        case 'isEqual':
+          break
+        case "isEqual":
+          console.log('что пришло в эквал', validations[validation])
           if (value === validations[validation]) {
             setEqualError(false)
           } else {
             setEqualError(true)
-            setErrorMessage('Пароли не совпадают')
+            setErrorMessage("Пароли не совпадают")
           }
-          break;
-        case 'isMail':
+          break
+        case "isMail":
           const regExpEmail = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu
           if (regExpEmail.test(String(value))) {
             setEmailError(false)
           } else {
             setEmailError(true)
-            setErrorMessage('Неверный адрес почты')
+            setErrorMessage("Неверный адрес почты")
           }
-          break;
-        case 'isEmpty':
-          if (value.trim().split(' ').join('')) {
+          break
+        case "isEmpty":
+          if (value.trim().split(" ").join("")) {
             setEmpty(false)
           } else {
             setEmpty(true)
             setErrorMessage(messageEmpty)
           }
-          break;
+          break
       }
     }
   }, [value])
@@ -95,10 +94,6 @@ const useInput = (initialValue, validations, messageEmpty, mask) => {
     } else {
       setValue(e.target.value)
     }
-
-    if(mask){
-
-    }
   }
 
   const onBlur = (e) => {
@@ -116,4 +111,4 @@ const useInput = (initialValue, validations, messageEmpty, mask) => {
   }
 }
 
-export default useInput;
+export default useInput
