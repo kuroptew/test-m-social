@@ -14,7 +14,7 @@ import phoneMask from "../../utils/phoneMask"
 
 import styles from "./FormUser.module.scss"
 
-const FormUser = ({user, date, setUser, setDate}) => {
+const FormUser = ({user, setUser}) => {
   const optionsCities = useMemo(() => {
     return getSortedAndFilteredCities(cities)
   }, [])
@@ -90,13 +90,12 @@ const FormUser = ({user, date, setUser, setDate}) => {
       password: userPasswordInput.value,
       phone: userPhoneInput.value,
       email: userEmailInput.value,
-      agree: userCheckbox.value
+      agree: userCheckbox.value,
+      lastModify: new Date()
     }
 
     setUser(newUserData)
     console.log(JSON.stringify(newUserData))
-
-    setDate(new Date())
   }
 
   const invalidUserRepeatPassword = userRepeatPasswordInput.isDirty && (userPasswordInput.value !== userRepeatPasswordInput.value)
@@ -211,11 +210,11 @@ const FormUser = ({user, date, setUser, setDate}) => {
           >
             Изменить
           </button>
-          {date &&
+          {user.lastModify &&
             <span
               className={styles["submit__text"]}
             >
-              {`последние изменения ${formattedDate(date)}`}
+              {`последние изменения ${formattedDate(user.lastModify)}`}
             </span>
           }
         </div>

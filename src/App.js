@@ -4,21 +4,17 @@ import FormUser from "./components/FormUser/FormUser"
 
 import "./style/style.scss"
 
+const KEY_USER = "latestUser"
 
 function App() {
-  const keyChange = "latestChange"
-  const keyUser = "latestUser"
-
-  const [user, setUser] = useLocalStorage(keyUser, {})
-  const [date, setDate] = useLocalStorage(keyChange, "")
+  const [user, setUser] = useLocalStorage(KEY_USER, {})
 
   return (
-    <div className="App">
       <div className="container">
         <h1 className="title">Здравствуйте, <span>{user.name || "Человек"}</span></h1>
-        <FormUser user={user} date={date} setUser={setUser} setDate={setDate}/>
+        <FormUser user={user} setUser={setUser}/>
       </div>
-    </div>)
+  )
 }
 
 export default App

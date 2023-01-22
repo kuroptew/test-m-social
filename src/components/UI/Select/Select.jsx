@@ -1,6 +1,6 @@
 import styles from "./Select.module.scss"
 
-const Select = ({options, value, onChange, labelName, id}) => {
+const Select = ({options, id, value, onChange, labelName}) => {
   return (
     <div className={styles["select__wrapper"]}>
       <label

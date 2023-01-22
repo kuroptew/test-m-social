@@ -17,10 +17,10 @@ function getSortedAndFilteredCities(cities) {
     }
   )
 
-  const sortedFirstMaxCity = [cityMaxPopulation, ...sortedAndFilteredCities.slice(0, indexMaxPopulation),
+  const sortedFirstMaxCities = [cityMaxPopulation, ...sortedAndFilteredCities.slice(0, indexMaxPopulation),
    ...sortedAndFilteredCities.slice(indexMaxPopulation+1,)].map(objCity => ({value: objCity.city, id:objCity.population}))
 
-  return sortedFirstMaxCity
+  return sortedFirstMaxCities
 }
 
 export default getSortedAndFilteredCities
