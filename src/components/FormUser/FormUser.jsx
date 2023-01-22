@@ -20,7 +20,7 @@ const FormUser = ({user, date, setUser, setDate}) => {
   }, [])
 
   const userNameInput = useInput(
-    user.name || '',
+    user.name || "",
     {
       minLength: 2,
       isCyrillic: false,
@@ -29,20 +29,20 @@ const FormUser = ({user, date, setUser, setDate}) => {
     "Укажите имя")
 
   const userSurnameInput = useInput(
-    user.surname || '',
+    user.surname || "",
     {
       minLength: 2,
       isCyrillic: false,
       isEmpty: true
     },
     "Укажите фамилию")
-  //
+
   const userCityInput = useInput(
     user.city || optionsCities[0],
     {})
-  //
+
   const userPasswordInput = useInput(
-    user.password || '',
+    user.password || "",
     {
       minLength: 6,
       isLatin: false,
@@ -51,7 +51,7 @@ const FormUser = ({user, date, setUser, setDate}) => {
     `Укажите пароль`)
 
   const userRepeatPasswordInput = useInput(
-    user.password || '',
+    user.password || "",
     {
       isEqual: userPasswordInput.value,
       isEmpty: true
@@ -66,15 +66,16 @@ const FormUser = ({user, date, setUser, setDate}) => {
     user.agree || false,
     {})
 
-  const userEmailInput = useInput(user.email || '', {
-    isMail: false,
-    isEmpty: userCheckbox.value
-  }, 'Укажите почту')
+  const userEmailInput = useInput(
+    user.email || "",
+    {
+      isMail: false,
+      isEmpty: userCheckbox.value
+    },
+    "Укажите почту")
 
   const isInvalidForm = () => {
-    const inputsFilled = userNameInput.value && userSurnameInput.value && userPasswordInput.value && (userPasswordInput.value === userRepeatPasswordInput.value)
-    const inputsValid = !invalidUserName && !invalidUserSurname && !invalidUserPassword && !invalidUserRepeatPassword && !(userCheckbox.value && invalidUserEmail)
-    const formFillingValid = inputsFilled && inputsValid
+    const formFillingValid = userNameInput.inputValid && userSurnameInput.inputValid && userPasswordInput.inputValid && !invalidUserEmail && !invalidUserRepeatPassword && (userPasswordInput.value === userRepeatPasswordInput.value)
 
     return !formFillingValid
   }
@@ -98,9 +99,6 @@ const FormUser = ({user, date, setUser, setDate}) => {
     setDate(new Date())
   }
 
-  const invalidUserName = userNameInput.isDirty && (userNameInput.isEmpty || userNameInput.minLengthError || userNameInput.cyrillicError)
-  const invalidUserSurname = userSurnameInput.isDirty && (userSurnameInput.isEmpty || userSurnameInput.minLengthError || userSurnameInput.cyrillicError)
-  const invalidUserPassword = userPasswordInput.isDirty && (userPasswordInput.isEmpty || userPasswordInput.minLengthError || userPasswordInput.latinError)
   const invalidUserRepeatPassword = userRepeatPasswordInput.isDirty && (userPasswordInput.value !== userRepeatPasswordInput.value)
   const invalidUserEmail = userCheckbox.value ? (userEmailInput.isEmpty || userEmailInput.emailError) : (!userEmailInput.isEmpty && userEmailInput.emailError)
 
@@ -115,7 +113,7 @@ const FormUser = ({user, date, setUser, setDate}) => {
           description="Должен содержать не менее 2 символов и только кириллица."
           placeholder="Введите Имя"
           required={true}
-          invalidInput={invalidUserName}
+          invalidInput={userNameInput.isDirty && !userNameInput.inputValid}
           value={userNameInput.value}
           onChange={userNameInput.onChange}
           onBlur={userNameInput.onBlur}
@@ -128,7 +126,7 @@ const FormUser = ({user, date, setUser, setDate}) => {
           description="Должен содержать не менее 2 символов и только кириллица."
           placeholder="Введите Фамилию"
           required={true}
-          invalidInput={invalidUserSurname}
+          invalidInput={userSurnameInput.isDirty && !userSurnameInput.inputValid}
           value={userSurnameInput.value}
           onChange={userSurnameInput.onChange}
           onBlur={userSurnameInput.onBlur}
@@ -150,7 +148,7 @@ const FormUser = ({user, date, setUser, setDate}) => {
           description="Должен содержать не менее 6 символов и только латинские буквы."
           placeholder="Введите Пароль"
           required={true}
-          invalidInput={invalidUserPassword}
+          invalidInput={userPasswordInput.isDirty && !userPasswordInput.inputValid}
           value={userPasswordInput.value}
           onChange={userPasswordInput.onChange}
           onBlur={userPasswordInput.onBlur}
@@ -163,7 +161,7 @@ const FormUser = ({user, date, setUser, setDate}) => {
           description="Проверка на совпадение с паролем."
           placeholder="Повторите Пароль"
           required={true}
-          invalidInput={invalidUserRepeatPassword}
+          invalidInput={invalidUserRepeatPassword || (userPasswordInput.value && userRepeatPasswordInput.value && (userPasswordInput.value !== userRepeatPasswordInput.value))}
           value={userRepeatPasswordInput.value}
           onChange={userRepeatPasswordInput.onChange}
           onBlur={userRepeatPasswordInput.onBlur}
@@ -187,7 +185,6 @@ const FormUser = ({user, date, setUser, setDate}) => {
           id="input-email"
           type="email"
           description="Проверка на валидность email."
-          //placeholder=""
           required={false}
           invalidInput={invalidUserEmail}
           value={userEmailInput.value}

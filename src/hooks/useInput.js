@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 
-import getDeclination from "../utils/getDeclination";
+import getDeclination from "../utils/getDeclination"
 
 const useValidation = (value, validations, messageEmpty) => {
   const [isEmpty, setEmpty] = useState(true)
