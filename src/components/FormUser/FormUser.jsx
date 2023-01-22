@@ -1,4 +1,4 @@
-import {useMemo} from "react"
+import {useState} from "react"
 
 import useInput from "../../hooks/useInput"
 
@@ -15,9 +15,7 @@ import phoneMask from "../../utils/phoneMask"
 import styles from "./FormUser.module.scss"
 
 const FormUser = ({user, setUser}) => {
-  const optionsCities = useMemo(() => {
-    return getSortedAndFilteredCities(cities)
-  }, [])
+  const [optionsCities] = useState(() => getSortedAndFilteredCities(cities))
 
   const userNameInput = useInput(
     user.name || "",
