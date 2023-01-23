@@ -3,7 +3,7 @@ import styles from "./Checkbox.module.scss"
 const Checkbox = ({labelName, id, required, description, checked, onChange}) => {
   return (
     <div className={styles["checkbox__wrapper"]}>
-      <p className={styles["checkbox__description"]}>{description}</p>
+      {description && <p className={styles["checkbox__description"]}>{description}</p>}
       <div className={styles["checkbox__wrapper_right"]}>
         <input
           className={styles["checkbox__input"]}
